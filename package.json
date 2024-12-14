@@ -1,0 +1,70 @@
+{
+  "name": "vscode-sensitive-file-highlighter",
+  "displayName": "Sensitive File Highlighter",
+  "description": "Highlights sensitive files in the explorer and tabs with configurable colors.",
+  "version": "1.0.0",
+  "publisher": "adefee",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adefee/vscode-sensitive-file-highlighter"
+  },
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onDidOpenTextDocument"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Sensitive File Highlighter",
+      "properties": {
+        "sfh.enableHighlighting": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable highlighting of sensitive files."
+        },
+        "sfh.sensitiveFilePatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/.env",
+            "**/.env.*",
+            "**/config.js"
+          ],
+          "description": "Glob patterns for files considered sensitive."
+        },
+        "sfh.explorerHighlightColor": {
+          "type": "string",
+          "default": "#FF0000",
+          "description": "Hex color code for highlighting sensitive files in the explorer."
+        },
+        "sfh.tabHighlightColor": {
+          "type": "string",
+          "default": "#FF0000",
+          "description": "Hex color code for highlighting tabs of opened sensitive files."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "minimatch": "^5.1.2"
+  },
+  "devDependencies": {
+    "@types/minimatch": "^5.1.2",
+    "@types/vscode": "^1.50.0",
+    "typescript": "^4.5.5"
+  }
+}
