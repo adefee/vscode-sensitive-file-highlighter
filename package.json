@@ -2,7 +2,8 @@
   "name": "vscode-sensitive-file-highlighter",
   "displayName": "Sensitive File Highlighter",
   "description": "Highlights sensitive files in the explorer and tabs with configurable colors.",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "icon": "images/extension_logo_128x128.png",
   "publisher": "adefee",
   "repository": {
     "type": "git",
